@@ -18,30 +18,37 @@ public class Cuve{
 
 	public Cuve(int capacite)
 	{
-		this.id = Cuve.stkId++    ;
-		this.capacite = capacite  ;
-		this.contenu  = 0.0       ;
+		this.id = Cuve.stkId++  ;
+		this.capacite = capacite;
+		this.contenu  = 0.0     ;
 		/*this.position = position;*/
-		this.x        = 0         ;
-		this.y        = 0         ;
+		this.x        = 0       ;
+		this.y        = 0       ;
 	}
 
-	public boolean fabriqueCuve(int capacite)
+	public static Cuve fabriqueCuve(int capacite)
 	{
-		if (capacite < 200 && capacite > 1000)  return false;
+		if (capacite < 200 || capacite > 1000)  return null;
 
-        	if(Cuve.stkId == 'Z')                   return false;
+        if(Cuve.stkId == 'Z')                   return null;
 
-		new Cuve(capacite);
+        return new Cuve(capacite);
 
-		return true;
+
 	}
 
 	/*---------------------*/
 	/*------Méthodes-------*/
 	/*---------------------*/
 
+	public String toString()
+	{
+		String sRet;
+		sRet = "Ok " + this.capacite;
 
+		return sRet;
+
+	}
 
 	/*-----------------------*/
 	/*------Accesseurs-------*/
@@ -52,6 +59,29 @@ public class Cuve{
 	public double getContenu() { return this.contenu;  }
 	public int    getX      () { return this.x;        }
 	public int    getY      () { return this.y;        }
+
+	/*-----------------------*/
+	/*---------Main----------*/
+	/*-----------------------*/
+
+	public static void main(String [] args)
+	{
+
+		Cuve c ;
+		Cuve c2;
+
+		c = Cuve.fabriqueCuve(200);
+		c2 = Cuve.fabriqueCuve(199);
+
+
+		System.out.println(c);
+		System.out.println(c2);
+
+
+
+
+
+	}
 
 	
 }
