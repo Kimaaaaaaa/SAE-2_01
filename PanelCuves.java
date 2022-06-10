@@ -1,17 +1,21 @@
 import javax.swing.*;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
+import java.awt.*;
 
-public class PanelCuves extends JPanel
+public class PanelCuve extends JPanel
 {
-	public PanelCuves()
-	{	
-		this.setLayout( new GridLayout(26, 1) );
-	}
+	private char idCuve;
+	private static char stkCuve;
+	private JLabel  lblCuveCapacite;
+	private JTextField txtCapacite ;
 
-	public void ajouterCuve()
-	{
-		this.add ( new PanelCuve() );
+	public PanelCuve()
+	{	
+		this.idCuve = PanelCuve.stkCuve++;
+		this.lblCuveCapacite  = new JLabel ("cuve " + this.idCuve + " : capacité :");
+		this.txtCapacite      = new JTextField();
+
+		this.add(this.lblCuveCapacite);
+		this.add(this.txtCapacite);
+
 	}
 }
