@@ -18,23 +18,23 @@ public class Cuve{
 
 	public Cuve(int capacite)
 	{
-		this.id = Cuve.stkId++  ;
-		this.capacite = capacite;
-		this.contenu  = 0.0     ;
+		this.id = Cuve.stkId++    ;
+		this.capacite = capacite  ;
+		this.contenu  = 0.0       ;
 		/*this.position = position;*/
-		this.x        = 0       ;
-		this.y        = 0       ;
+		this.x        = 0         ;
+		this.y        = 0         ;
 	}
 
 	public boolean fabriqueCuve(int capacite)
 	{
 		if (capacite < 200 && capacite > 1000)  return false;
 
-        if(Cuve.stkId == 'Z')                   return false;
+        	if(Cuve.stkId == 'Z')                   return false;
 
-        new Cuve(capacite);
+		new Cuve(capacite);
 
-        return true;
+		return true;
 	}
 
 	/*---------------------*/
