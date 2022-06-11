@@ -3,7 +3,15 @@ import java.util.Scanner;
 
 public class Structure
 {
+    /*-------------*/
+    /*--Attributs--*/
+    /*-------------*/
+    
     private static int[][] tabStructure;
+    
+    /*----------------*/
+    /*--Constructeur--*/
+    /*----------------*/
 
     public Structure(/*int[][] tabStructure*/)
     {                                   //  A   B   C   D   E 
@@ -13,9 +21,16 @@ public class Structure
                                           { 0 , 9 , 4 , 0 , 5  },  // D
                                           { 0 , 3 , 2 , 5 , 0  } };// E
     }
-
-
+    
+    /*----------------*/
+    /*---Accesseurs---*/
+    /*----------------*/
+   
     public void getNbCuves() { }
+    
+    /*----------------*/
+    /*----Méthodes----*/
+    /*----------------*/
 
     public void genererTxt(String type, int[][] tabStructure)
     {
@@ -112,6 +127,8 @@ public class Structure
             }
         }
     } 
+    
+    /*-----Test-----*/
 
     public static void main(String[] args)
     {
