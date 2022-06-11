@@ -2,12 +2,20 @@ import java.util.ArrayList;
 
 public class Tube
 {
+    /*-----------------*/
+	/*----Attributs----*/
+	/*-----------------*/
+    
     private static int nbTube = 0;
     private int numTube;
 
     private int section;
     private Cuve c1;
     private Cuve c2;
+    
+    /*--------------------*/
+	/*----Constructeur----*/
+	/*--------------------*/
 
     public Tube(int section)
     {
@@ -23,6 +31,10 @@ public class Tube
 
         this.numTube = ++Tube.nbTube;
     }
+    
+    /*---------------------*/
+	/*------Méthodes-------*/
+	/*---------------------*/
 
     public boolean relierCuves(Cuve c1, Cuve c2)
     {
@@ -50,3 +62,15 @@ public class Tube
         return s;
     }
 }
+
+
+
+
+
+
+
+
+
+	/*-----------------------*/
+	/*------Accesseurs-------*/
+	/*-----------------------*/
