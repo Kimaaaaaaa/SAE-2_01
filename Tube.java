@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Tube
 {
     /*-----------------*/
-	/*----Attributs----*/
-	/*-----------------*/
+    /*----Attributs----*/
+    /*-----------------*/
     
     private static int nbTube = 0;
     private int numTube;
@@ -14,8 +14,8 @@ public class Tube
     private Cuve c2;
     
     /*--------------------*/
-	/*----Constructeur----*/
-	/*--------------------*/
+    /*----Constructeur----*/ 
+    /*--------------------*/
 
     public Tube(int section)
     {
@@ -33,8 +33,8 @@ public class Tube
     }
     
     /*---------------------*/
-	/*------Méthodes-------*/
-	/*---------------------*/
+    /*------Méthodes-------*/
+    /*---------------------*/
 
     public boolean relierCuves(Cuve c1, Cuve c2)
     {
