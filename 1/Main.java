@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import iut.algo.*;
 
 public class Main
 {
@@ -50,7 +51,7 @@ public class Main
         System.out.print("Cuves a relier (syntaxe : AB2/AC6/.. pour relier A a B avec une section de 2 et A a C avec une section de 6) : ");
 
         String s = sc.next();
-        // a faire : verifier la validité de la chaine
+        // a faire : verifier la validitÃ© de la chaine
         //System.out.println(s);
 
         String[] strSplit = s.split("/");
@@ -92,12 +93,10 @@ public class Main
             System.out.println("");
         }
 
-        Structure structure;
+        Structure structure = new Structure(matriceCout);
+        
+        System.out.println("Quelle structure choisissez-vous ?");
 
-        structure = new Structure(matriceCout);
-
-        structure.genererTxt("mc");
-        structure.genererTxt("la");
-        structure.genererTxt("mco");
+        structure.verifierSaisie();
     }
 }
