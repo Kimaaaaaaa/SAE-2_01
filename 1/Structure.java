@@ -14,35 +14,31 @@ public class Structure
     /*----------------*/
 
     public Structure(int[][] tabStructure)
-    {                                   //  A   B   C   D   E 
+    { 
         this.tabStructure = tabStructure;
-        
-        /*new int[][] { { 0 , 1 , 10 , 0 , 0 },  // A 
-                                          { 1 , 0 , 7 , 9 , 3  },  // B 
-                                          { 10 , 7 , 0 , 4 , 2 },  // C
-                                          { 0 , 9 , 4 , 0 , 5  },  // D
-                                          { 0 , 3 , 2 , 5 , 0  } };// E*/
     }
     
     /*----------------*/
     /*---Accesseurs---*/
     /*----------------*/
    
-    public int getNbCuves() { return 0; }
+    public int getNbCuves() { return Cuve.idInstance; }
     
     /*----------------*/
-    /*----Methodes----*/
+    /*----MÃ©thodes----*/
     /*----------------*/
 
     public void genererTxt(String type)
     {
         switch(type) 
         {
-            case "mc" :
+            case "matriceCout" :
             {
                 try
                 {
-                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("matriceCout.data"), "UTF8"));
+                    File f         = new File("donnees.data");
+                    f.delete(); 
+                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("donnees.data"), "UTF8"));
                     pw.println(type.toUpperCase() + "\n--------------------------");
 
                     pw.print("   ");
@@ -68,11 +64,13 @@ public class Structure
                 break;
             }
 
-            case "la"    : 
+            case "listeAdjacence"    : 
             {
                 try
                 {
-                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("listeAdjacence.data"), "UTF8"));
+                    File f         = new File("donnees.data");
+                    f.delete();
+                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("donnees.data"), "UTF8"));
                     pw.println(type.toUpperCase() + "\n--------------");
 
                     
@@ -88,20 +86,23 @@ public class Structure
                         }
                     }
                     pw.close();
-                 
                 }
                 catch (Exception e)
                 {
                     System.out.println("Erreur");
+        System.out.println("Quelle structure choisissez-vous ?");
                     e.printStackTrace();
                 }
                 break;
             }
-            case "mco"  :
+            
+            case "matriceCoutOptimise"  :
             {
                 try
                 {
-                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("matriceCoutOptimise.data"), "UTF8"));
+                    File f         = new File("donnees.data");
+                    f.delete();
+                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("donnees.data"), "UTF8"));
                     pw.println(type.toUpperCase() + "\n--------------------------");
 
                     pw.print("   ");
@@ -123,7 +124,6 @@ public class Structure
                         pw.println( ") " + (char) (i + 'A') );
                     }
                     pw.close(); 
-    
                 }
                 catch (Exception e)
                 {
@@ -133,17 +133,27 @@ public class Structure
                 break;
             }
         }
-    }   
-    /*-----Test-----*/
+    } 
 
-    /*public static void main(String[] args)
+    public void verifierSaisie()
     {
-        Structure s1 = new Structure();
-        Structure s2 = new Structure();
-        Structure s3 = new Structure();
+        Structure structure = new Structure(tabStructure);
+        Scanner sc = new Scanner(System.in);
+        String sRet = sc.next();
         
-        s1.genererTxt("listeAdjacence",     Structure.tabStructure );
-        s2.genererTxt("matriceCout"   ,     Structure.tabStructure );
-        s3.genererTxt("matriceCoutOptimise", Structure.tabStructure );
-    }*/
+        while(! ((sRet.equals("matriceCout")) || sRet.equals("listeAdjacence") || sRet.equals("matriceCoutOptimise")))
+        {
+            System.out.println("[ERREUR : SAISIE INVALIDE]");
+            sRet = sc.next();
+
+            if (sRet.equals("matriceCout"))
+                structure.genererTxt("matriceCout");
+            
+            if (sRet.equals("listeAdjacence"))
+                structure.genererTxt("listeAdjacence");
+
+            if (sRet.equals("matriceCoutOptimise"))
+                structure.genererTxt("matriceCoutOptimise");
+        }
+    }  
 }
